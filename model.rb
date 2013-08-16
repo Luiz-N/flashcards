@@ -1,4 +1,4 @@
-# require ""
+# require "controller.rb"
 class Flashcard
   attr_reader :definition, :term 
   def initialize(definition, term)
@@ -12,6 +12,7 @@ class Deck
   def initialize(filename)
     @stack = []
     @filename = filename
+    grabcards
   end
 
   def grabcards
@@ -25,7 +26,6 @@ class Deck
 
   def pull_card
     random_card = rand(0..@stack.length)
-    # p random_card
     # p @stack[random_card]
     card = @stack[random_card]
   end
@@ -48,12 +48,12 @@ class Deck
 end
 
 
-deck = Deck.new("cards.txt")
+# deck = Deck.new("cards.txt")
 
-deck.grabcards
+# deck.grabcards
+# # card = deck.pull_card
+# 20.times { 
 # card = deck.pull_card
-20.times { 
-card = deck.pull_card
-deck.remove_card(card)
- }
+# deck.remove_card(card)
+#  }
 
